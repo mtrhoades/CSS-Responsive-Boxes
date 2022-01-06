@@ -2,63 +2,40 @@
 body {
   background: blanchedalmond;
 }
+/* border for every item and container on the page */
+* {
+  border: 1px solid black;
+}
+/* make the container for mobile view first - in a desktop view */
 .container {
   min-height: 100vh;
   background-color: aquamarine;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
 
 }
-.a {
-  background-color: red;
-  min-width: 300px;
-  border: solid 2px black;
-  flex: 1 0 100vh;
-  height: 250px
-
+/* again for the mobile view - in desktop view make .a and .c boxes same size */
+.a, .c{
+  flex-grow: 1;
 }
+/* again for the mobile view - in desktop view make .b bigger than the others */
 .b {
-  background-color: #678;
-  border: solid 2px black;
-  flex: 2 0 75vh;
-  height: 750px;
+  flex-grow: 3;
 
 }
-.c {
-  background-color: #5fe995;
-  border: solid 2px black;
-  flex: 1 0 200px;
-  height: 750px;
-
-}
-@media screen and (max-width: 600px) {
+/* for the desktop view, when it hits more than 600px(mobile phone) */
+@media (min-width: 600px) {
   .container {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
+  /* make .a width: 100% to take up the whole top part of width, which pushes the .b and .c items underneath it with .b having flex grow bigger than others. */
   .a {
-    max-height: 200px;
+    width: 100%;
   }
-  .b {
-
-  }
-  .c {
-    max-height: 200px;
-  }
-}
-@media screen and (max-width: 1000px) {
-  .container {
-    flex-direction: column;
-  }
-  .a {
-    max-height: 200px;
-  }
-  .b {
-
-  }
-  .c {
-    max-height: 200px;
+  /* puts a margin on all the items to differentiate easier */
+  .a, .b, .c {
+    margin: 1em;
   }
 }
