@@ -67,7 +67,7 @@ body {
   .e {
     height: 200px;
     justify-self: stretch;
-    width: 200px;
+    width: 199px;
   }
   .f {
     grid-column: 4 / span 1;
